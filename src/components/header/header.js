@@ -12,20 +12,21 @@ class header extends Component {
           style={{
             fontFamily: "Kumbh Sans",
             fontWeight: "bold",
-            fontSize: "18px"
+            fontSize: "18px",
           }}
         >
-
           <div className="container-fluid">
-            <img alt src={HeaderLogo} 
-
-                style={{
-                  width: '130px'
-                  }}/>
             <a
               className="navbar-brand"
-              href="#"
+              href="https://satriaana.github.io/Satriaana-Web-Site/"
             >
+              <img
+                alt
+                src={HeaderLogo}
+                style={{
+                  width: "130px",
+                }}
+              />
             </a>
             <button
               data-toggle="collapse"
@@ -40,34 +41,31 @@ class header extends Component {
               id="navcol-1"
             >
               <ul className="nav navbar-nav">
-                <Link style={{textDecoration: 'none'}} to="/Satriaana-Web-Site">
-                  {" "}
-                  <li className="nav-item">
-                    <a className="nav-link" href="#">
-                      Home
-                    </a>
-                  </li>
-                </Link>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <Link className="nav-link" to="/">
+                    Home
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="https://blog.satriaana.org">
                     Blog
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="https://forum.satriaana.org">
                     Forum
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/contact">
+                  <Link className="nav-link" to="/contact">
                     Contact
-                  </a>
+                  </Link>
                 </li>
-                <Link style={{textDecoration: 'none'}} to="/about">
-                  <li className="nav-item">
-                    <a className="nav-link">About</a>
-                  </li>
-                </Link>
+                <li className="nav-item">
+                  <Link className="nav-link" style={{ textDecoration: "none" }} to="/about">
+                    About
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>

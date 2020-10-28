@@ -1,47 +1,29 @@
 import React, { Component } from "react";
 
 //components
-import Header from "./components/header/header";
-import Blog from "./components/BlogCard/blog";
-import Forum from "./components/ForumCard/forum";
-import Footer from "./components/footer/footer";
-import Cover from "./components/cover/cover";
-import Carousel from "./components/carousell/carousel";
-import Twitter from "./components/twitterfeed/twitter";
-import Newsletter from "./components/newslettter/newsletter";
-import Titleintroduction from "./components/titleintroduction/titleintroduction";
-import About from "./components/about/About";
-import Contact from "./components/contact/contact";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
-//app home
-const Home = () => {
-  return (
-    <>
-      <Cover />
-      <Carousel />
-      <Titleintroduction />
-      <Blog />
-      <Forum />
-      <Twitter />
-      <Newsletter />
-    </>
-  );
-};
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import { Home } from "./pages/home";
+import { Contact } from "./pages/contact";
+import { About } from "./pages/about";
 
 class App extends Component {
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Header />
-          <Switch>
-            <Route exact true path="/Satriaana-Web-Site" component={Home} />
-            <Route path="/contact" exact component={Contact} />
-            <Route path="/about" exact component={About} />
-          </Switch>
-          <Footer />
-        </div>
+      <Router basename={process.env.PUBLIC_URL}>
+        <Switch>
+          <Route exact true path="/" component={Home} />
+          <Route path="/contact" exact component={Contact} />
+          <Route path="/about" exact component={About} />
+
+          {/* Create a 404 Page If route not found,
+            currently being Redirected to Home Page */}
+          <Route path="/" render={() => <Redirect to={{ pathname: "/" }} />} />
+        </Switch>
       </Router>
     );
   }
